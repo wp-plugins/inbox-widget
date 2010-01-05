@@ -16,6 +16,9 @@ Adds a widget showing the three most recent private messages to logged in users 
 
 Upload `bp-inbox-widget.php` to `/wp-content/plugins/` directory. Activate the plugin and add widget to sidebar. 
 
+== Screenshots ==
+
+1. Widget shown after installation.
 
 == Change log ==
 * .01 - Initial release.
