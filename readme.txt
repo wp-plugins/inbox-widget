@@ -13,7 +13,7 @@ Upload `bp-inbox-widget.php` to `/wp-content/plugins/` directory. Activate the p
 
 == Screenshots ==
 
-Preview of widget
+1. Preview of widget
 
 == Change log ==
 * .01 - Initial release.
