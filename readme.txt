@@ -7,18 +7,13 @@ Tested up to: WPMU 2.8.6, BuddyPress trunk revision 2243
 Adds a widget showing the three most recent private messages to logged in users viewing the homepage of a BuddyPress powered website. This plugin is not stable and should not be used for anything other than a testing site. 
 
 
-== Description ==
-
-Adds a widget showing the three most recent private messages to logged in users viewing the homepage of a BuddyPress powered website. This plugin is not stable and should not be used for anything other than a testing site. 
-
-
 == Installation ==
 
 Upload `bp-inbox-widget.php` to `/wp-content/plugins/` directory. Activate the plugin and add widget to sidebar. 
 
 == Screenshots ==
 
-1. Widget shown after installation.
+Widget shown after installation.
 
 == Change log ==
 * .01 - Initial release.
