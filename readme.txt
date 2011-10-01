@@ -1,22 +1,26 @@
 === Plugin Name ===
-Contributors: davidtcarson
-Tags: buddypress, messaging
-Requires at least: WPMU 2.8.6, BuddyPress trunk revision 2243+
-Tested up to: WPMU 2.8.6, BuddyPress trunk revision 2243
+Contributors:      davidtcarson
+Plugin Name:       Inbox Widget
+Plugin URI:        http://buddypress.org
+Tags:              buddypress, inbox, widget, messages
+Author URI:        http://davidtcarson.com
+Author:            David Carson
+Requires at least: WP 3.2.1, BP 1.5
+Tested up to:      WP 3.2.1, BP 1.5
+Version:           1.5.01
 
-Adds a widget showing the three most recent private messages to logged in users viewing the homepage of a BuddyPress powered website. This plugin is not stable and should not be used for anything other than a testing site. 
+Adds a widget option showing the three most recent private messages to logged in users of a BuddyPress powered website. 
 
 
 == Installation ==
 
-Upload `bp-inbox-widget.php` to `/wp-content/plugins/` directory. Activate the plugin and add widget to sidebar. 
+Install automtically from dashboard or upload manually to `/wp-content/plugins/` directory. Activate the plugin and look for the "Inbox" widget on your widget dashboard. Add widget to any widgetized area.   
 
 == Screenshots ==
 
 1. Preview of widget
 
 == Change log ==
+* 1.5.01 - Update for BuddyPress 1.5 
 * .01 - Initial release.
 
-== Notes ==
-* This plugin will only work properly if installed on a BuddyPress site running trunk 2243+ and using the bp-default theme. 

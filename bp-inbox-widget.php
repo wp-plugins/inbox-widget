@@ -1,53 +1,11 @@
 <?php
-/*
-Plugin Name: Inbox Widget
-Plugin URI: http://www.twitter.com/davidtcarson
-Author: David Carson
-Author URI: http://www.twitter.com/davidtcarson
-Description: Adds a widget showing three most recent private messages to logged-in users on a site powered by BuddyPress.
-Version: .01
-Site Wide Only: false
-License: General Public License version 3 
-Requires at least: WPMU 2.8.6, BuddyPress trunk?
-Tested up to: WPMU 2.8.6, BuddyPress trunk revision 2243
-
-
-"Inbox Widget" for BuddyPress
-Copyright (C) 2009 David Carson
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License version 3 as published by
-the Free Software Foundation.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see http://www.gnu.org/licenses/.
-
-*/
-
-
-
-
 
 /* Create the widget. */
 
-function bp_core_register_inbox_widget() {
-
-	add_action('widgets_init', create_function('', 'return register_widget("BP_Core_Inbox_Widget");') );
-	
-	
-}
-add_action( 'plugins_loaded', 'bp_core_register_inbox_widget' );
-
-
-
 class BP_Core_Inbox_Widget extends WP_Widget {
-	function bp_core_inbox_widget() {
-		parent::WP_Widget( false, $name = __( "Inbox", 'buddypress' ) );
+	
+	function BP_Core_Inbox_Widget() {
+		parent::WP_Widget( false, 'Inbox' );
 	}
 
 
@@ -55,7 +13,7 @@ class BP_Core_Inbox_Widget extends WP_Widget {
 		global $bp;
 	 
 	 // Show the widget only to logged-in users on the homepage
-	  If ( !is_user_logged_in() || bp_is_page( BP_HOME_BLOG_SLUG ) || !bp_is_page( 'home' ) )
+	  If ( !is_user_logged_in() || ( bp_is_user_messages() ) )
 		return;
 		
 	
@@ -87,7 +45,7 @@ class BP_Core_Inbox_Widget extends WP_Widget {
      		</div>
      	
      		<div class="message-meta">
-     			<p><a class="button view" title="View Message" href="<?php bp_message_thread_view_link() ?>">View Message</a> <a class="button view" title="Send Reply" href="<?php bp_message_thread_view_link() ?>/#send-reply">Reply</a></p>
+     			<p><a class="button view" title="View Message" href="<?php bp_message_thread_view_link() ?>">View Message</a> <a class="button view" title="Send Reply" href="<?php bp_message_thread_view_link() ?>#send-reply">Reply</a></p>
    			</div>
      
     	</li>
@@ -110,7 +68,15 @@ class BP_Core_Inbox_Widget extends WP_Widget {
 	<?php
 	}
 
-	}
+}
+
+
+function bpinbox_register_widgets() {
+	register_widget( 'BP_Core_Inbox_Widget' );
+}
+
+add_action( 'widgets_init', 'bpinbox_register_widgets' );
+
 
 /* Add basic css. */
 
@@ -145,7 +111,7 @@ function bp_inbox_widget_add_css() { ?>
 
 			height:20px;
 			width:20px;
-			
+			margin-right: 5px;
 		}
 
 		.widget .message-subject, .widget .message-body {
